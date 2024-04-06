@@ -1,0 +1,101 @@
+.list-view {
+    -fx-font-size: 14;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: #0000;
+}
+
+.list-cell {
+    -fx-pref-height: 40;
+    /*-fx-font-size: 20;*/
+}
+
+.list-cell:hover,
+.list-cell:selected {
+    -fx-background-color: #e0e0e0;
+}
+
+/* 被选中的字体颜色 */
+.list-cell:hover .label,
+.list-cell:selected .label {
+    /*-fx-text-fill: #78eeac;*/
+    -fx-text-fill: black;
+
+}
+
+.list-cell .remove-btn {
+    -fx-background-color: null;
+    -fx-pref-height: 38;
+    -fx-pref-width: 38;
+    visibility: hidden;
+}
+
+.list-cell .remove-btn Region {
+    -fx-background-color: #169AF3;
+    -fx-shape: "M745.6 928H294.4c-51.2 0-96-44.8-96-102.4V390.4c0-19.2 16-32 32-32s32 16 32 32v438.4c0 19.2 12.8 35.2 28.8 35.2h451.2c16 0 28.8-16 28.8-35.2V390.4c0-19.2 16-32 32-32s32 16 32 32v438.4c6.4 54.4-35.2 99.2-89.6 99.2zM905.6 291.2h-768c-19.2 0-35.2-16-35.2-35.2s16-35.2 35.2-35.2h768c19.2 0 35.2 16 35.2 35.2s-16 35.2-35.2 35.2zM649.6 163.2h-256c-19.2 0-35.2-16-35.2-35.2s16-35.2 35.2-35.2h256c19.2 0 35.2 16 35.2 35.2s-16 35.2-35.2 35.2zM409.6 739.2c-19.2 0-35.2-16-35.2-35.2v-288c0-19.2 16-35.2 35.2-35.2s35.2 16 35.2 35.2v288c0 19.2-16 35.2-35.2 35.2zM633.6 739.2c-19.2 0-35.2-16-35.2-35.2v-288c0-19.2 16-35.2 35.2-35.2s35.2 16 35.2 35.2v288c0 19.2-16 35.2-35.2 35.2z";
+}
+
+.list-cell:hover .remove-btn {
+    visibility: visible;
+}
+
+.list-cell:empty {
+    -fx-background-color: null;
+}
+
+.show-lyric-btn {
+    -fx-background-color: null;
+}
+
+.show-lyric-btn:selected {
+    -fx-text-fill: #1296db;
+}
+
+.lyric-view {
+    -rx-line-height: 56;
+    -fx-font-size: 16;
+    -fx-border-width: 0;
+}
+
+.lyric-view .lrc-line {
+
+}
+
+.lyric-view .lrc-line:playing {
+    -fx-text-fill: #5192FE;
+}
+
+/*
+.playAndPause-btn {
+    -fx-color-label-visible: #5192FE;
+    -fx-border-width: 0;
+    -fx-shape: "M744.727273 551.563636L325.818182 795.927273c-30.254545 18.618182-69.818182-4.654545-69.818182-39.563637v-488.727272c0-34.909091 39.563636-58.181818 69.818182-39.563637l418.909091 244.363637c30.254545 16.290909 30.254545 62.836364 0 79.127272z";
+    -fx-background-image: null;
+}
+.playAndPause-btn:selected {
+    -fx-border-width: 0;
+    -fx-shape: "M442.181818 709.818182c0 37.236364-30.254545 69.818182-69.818182 69.818182s-69.818182-30.254545-69.818181-69.818182v-395.636364c0-37.236364 30.254545-69.818182 69.818181-69.818182s69.818182 30.254545 69.818182 69.818182v395.636364z m279.272727 0c0 37.236364-30.254545 69.818182-69.818181 69.818182s-69.818182-30.254545-69.818182-69.818182v-395.636364c0-37.236364 30.254545-69.818182 69.818182-69.818182s69.818182 30.254545 69.818181 69.818182v395.636364z";
+    -fx-background-image: null;
+}
+*/
+.playAndPause-btn {
+    -fx-background-color: null;
+}
+
+.playAndPause-btn Region {
+    /*-fx-pref-width: 55;
+    -fx-pref-height: 60;*/
+    -fx-shape: "M744.727273 551.563636L325.818182 795.927273c-30.254545 18.618182-69.818182-4.654545-69.818182-39.563637v-488.727272c0-34.909091 39.563636-58.181818 69.818182-39.563637l418.909091 244.363637c30.254545 16.290909 30.254545 62.836364 0 79.127272z";
+    -fx-background-color: #5192FE;
+}
+
+.playAndPause-btn:selected Region {
+    -fx-shape: "M442.181818 709.818182c0 37.236364-30.254545 69.818182-69.818182 69.818182s-69.818182-30.254545-69.818181-69.818182v-395.636364c0-37.236364 30.254545-69.818182 69.818181-69.818182s69.818182 30.254545 69.818182 69.818182v395.636364z m279.272727 0c0 37.236364-30.254545 69.818182-69.818181 69.818182s-69.818182-30.254545-69.818182-69.818182v-395.636364c0-37.236364 30.254545-69.818182 69.818182-69.818182s69.818182 30.254545 69.818181 69.818182v395.636364z";
+}
+
+/*.artistLabel:hover {*/
+/*    -fx-text-fill: #169AF3;*/
+/*    -fx-background-color: #5192FE;*/
+/*    -fx-indeterminate-bar-animation-time: 10;*/
+/*}*/
+
+

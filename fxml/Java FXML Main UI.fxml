@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.leewyatt.rxcontrols.controls.RXAudioSpectrum?>
+<?import com.leewyatt.rxcontrols.controls.RXLrcView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<SplitPane fx:id="root" dividerPositions="0.3650278116046086" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#root_SetOnKeyPressedListener" prefHeight="700.0" prefWidth="1030.0" stylesheets="@JavaFX.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Misaka.Music_GUI.Controller">
+  <items>
+    <AnchorPane maxWidth="330.0" minWidth="330.0" prefHeight="700.0" prefWidth="330.0" style="-fx-background-color: #F5FAFE;">
+         <children>
+            <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" layoutX="-3.0" layoutY="14.0" prefHeight="40.0" prefWidth="331.0" text="List" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <ListView fx:id="musicListView" layoutX="5.0" layoutY="72.0" maxWidth="320.0" onMouseClicked="#listView_SetMouseClickListener" prefHeight="620.0" prefWidth="320.0" stylesheets="@JavaFX.css" />
+            <Button fx:id="addMusicButton" layoutX="299.0" layoutY="46.0" mnemonicParsing="false" onMouseClicked="#addMusic_SetOnMouseClickListener" onMouseEntered="#addMusic_SetOnMouseEnterListener" text="+" />
+         </children></AnchorPane>
+    <AnchorPane maxWidth="700.0" minHeight="0.0" minWidth="700.0" prefHeight="700.0" prefWidth="700.0" style="-fx-background-color: #F5FAFE;">
+         <children>
+            <Slider fx:id="volumeSlider" layoutX="491.0" layoutY="652.0" prefHeight="15.0" prefWidth="196.0" />
+            <Slider fx:id="playSlider" layoutX="10.0" layoutY="601.0" prefHeight="15.0" prefWidth="678.0" />
+            <MenuButton fx:id="menuButton" graphicTextGap="0.0" layoutX="645.0" layoutY="14.0" mnemonicParsing="false" onMouseEntered="#menuButton_SetOnMouseEnterListener" opacity="0.39" text="...">
+              <items>
+                <MenuItem fx:id="appSettingButton" mnemonicParsing="false" onAction="#appSetting_SetOnActionListener" text="设置" />
+                <MenuItem fx:id="moreInfoButton" mnemonicParsing="false" onAction="#moreInfo_SetOnActionListener" text="详细信息" />
+                <MenuItem fx:id="checkUpdateButton" mnemonicParsing="false" onAction="#checkUpdate_SetOnActionListener" text="检查更新" />
+                <MenuItem fx:id="checkUpdateButton_GitHub" mnemonicParsing="false" onAction="#checkUpdateGitHub_SetOnActionListener" text="检查更新(github)" />
+                <MenuItem fx:id="aboutButton" mnemonicParsing="false" onAction="#about_SetOnActionListener" text="关于" />
+              </items>
+            </MenuButton>
+            <ImageView fx:id="volumeView" fitHeight="20.0" fitWidth="26.0" layoutX="465.0" layoutY="650.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/volumePic.png" />
+               </image>
+            </ImageView>
+            <MenuButton fx:id="circularSelection" layoutX="586.0" layoutY="14.0" mnemonicParsing="false" onMouseEntered="#circularSelection_SetOnMouseEnterListener" text="循环" textAlignment="CENTER">
+              <items>
+                  <RadioMenuItem fx:id="singlePlay" mnemonicParsing="false" text="单曲播放">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="loopChoiceGroup" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="loopSinglePlay" mnemonicParsing="false" text="单曲循环" toggleGroup="$loopChoiceGroup" />
+                  <RadioMenuItem fx:id="loopListPlay" mnemonicParsing="false" text="列表循环" toggleGroup="$loopChoiceGroup" />
+              </items>
+            </MenuButton>
+            <TextField fx:id="searchField" layoutX="14.0" layoutY="14.0" onKeyPressed="#searchMusic_SetOnKeyPressedListener" prefHeight="26.0" prefWidth="231.0" style="-fx-background-color: null; -fx-border-color: #66CCFF;" />
+            <ImageView fx:id="musicAlbumPic" fitHeight="153.0" fitWidth="153.0" layoutX="3.0" layoutY="425.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="searchMusicButton" layoutX="202.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchMusicButton_SetOnActionListener" onMouseEntered="#searchButton_SetOnMouseEnterListener" prefHeight="27.0" prefWidth="42.0" text="搜索" />
+            <ImageView fx:id="lastMusicPic" fitHeight="19.0" fitWidth="19.0" layoutX="302.0" layoutY="652.0" onMouseClicked="#prveMusic_SetOnMouseClickListener" onMouseEntered="#lastMusic_SetOnMouseEnterListener" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/lastMusicPic.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="nextMusicPic" fitHeight="19.0" fitWidth="19.0" layoutX="404.0" layoutY="652.0" onMouseClicked="#nextMusic_SetOnMouseClickListener" onMouseEntered="#nextMusic_SetOnMouseEnterListener" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/nextMusicPic.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="showMusicNameLabel" layoutX="10.0" layoutY="618.0" maxWidth="580.0" onMouseClicked="#musicNameLabel_SetOnMouseClickListener" onMouseEntered="#musicNameLabel_SetOnMouseEnterListener" prefHeight="20.0" />
+            <Label fx:id="showMusicTimeLabel" layoutX="597.0" layoutY="613.0" prefHeight="25.0" prefWidth="93.0" text="00:00 / 00:00" />
+            <Label fx:id="showMusicArtistLabel" layoutX="10.0" layoutY="661.0" maxWidth="280.0" onMouseClicked="#musicArtist_SetOnMouseClickListener" onMouseEntered="#musicArtist_SetOnMouseEnterListener" prefHeight="20.0" styleClass="artistLabel" stylesheets="@JavaFX.css" />
+            <RXAudioSpectrum fx:id="musicSpectrum" layoutX="7.0" layoutY="540.0" prefHeight="61.0" prefWidth="680.0" style="-fx-border-width: 0;" />
+            <RXLrcView fx:id="showMusicLyric" layoutX="14.0" layoutY="41.0" prefHeight="495.0" prefWidth="670.0" styleClass="lyric-view" stylesheets="@JavaFX.css" />
+            <ImageView fx:id="miniWindowButton" fitHeight="22.0" fitWidth="22.0" layoutX="495.0" layoutY="15.0" onMouseClicked="#miniWindow_SetOnMouseClickListener" onMouseEntered="#miniWindow_SetOnMouseEnterListener" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/miniWindow.png" />
+               </image>
+            </ImageView>
+            <ToggleButton fx:id="showLyricButton" layoutX="423.0" layoutY="639.0" mnemonicParsing="false" onMouseClicked="#showLyric_SetOnMouseClickListener" onMouseEntered="#showLyric_SetOnMouseEnterListener" prefHeight="40.0" prefWidth="42.0" styleClass="show-lyric-btn" stylesheets="@JavaFX.css" text="词">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </ToggleButton>
+            <Text fx:id="addMusicLyricButton" layoutX="527.0" layoutY="31.0" onMouseClicked="#addLyric_SetOnMouseClickListener" onMouseEntered="#addLyric_SetOnMouseEnterListener" strokeType="OUTSIDE" strokeWidth="0.0" text="关联歌词" />
+            <ToggleButton fx:id="playAndPauseButton" layoutX="341.0" layoutY="639.0" mnemonicParsing="false" onAction="#playAndPause_SetOnActionListener" onMouseEntered="#playAndPause_SetOnMouseEnterListener" prefHeight="40.0" prefWidth="42.0" styleClass="playAndPause-btn" stylesheets="@JavaFX.css">
+               <graphic>
+                  <Region prefHeight="34.0" prefWidth="27.0" />
+               </graphic></ToggleButton>
+            <Label fx:id="showMusicAlbumLabel" layoutX="10.0" layoutY="640.0" maxWidth="280.0" onMouseClicked="#musicAlbum_SetOnMouseClickListener" onMouseEntered="#musicAlbum_SetOnMouseEnterListener" prefHeight="18.0" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>
